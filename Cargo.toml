@@ -1,0 +1,21 @@
+[package]
+name = "filter_bam_pairs"
+version = "1.0.0"
+edition = "2021"
+authors = ["Your Name <your@email.com>"]
+description = "Filter paired-end BAM reads by kmer complexity and mapped bases"
+
+[dependencies]
+rust-htslib = "0.47"
+clap = { version = "4.5", features = ["derive"] }
+anyhow = "1.0"
+
+[profile.release]
+opt-level = 3
+lto = true
+codegen-units = 1
+strip = true
+
+[[bin]]
+name = "filter_bam_pairs"
+path = "src/main.rs"
